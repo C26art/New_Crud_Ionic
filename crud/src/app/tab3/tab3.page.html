@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> List </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Product List</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col sizeXs="2" sizeMd="1">Id</ion-col>
+        <ion-col sizeXs="6" sizeMd="2">Product</ion-col>
+        <ion-col class="hidden-xs-col hidden-md-col" sizeMd="2"
+          >Buy Price</ion-col
+        >
+        <ion-col class="hidden-xs-col hidden-md-col" sizeMd="2"
+          >Percent</ion-col
+        >
+        <ion-col class="hidden-xs-col hidden-md-col" sizeMd="2"
+          >Sale Price</ion-col
+        >
+
+        <ion-col class="hidden-xs-col hidden-md-col" sizeMd="3"
+          >Supplier</ion-col
+        >
+
+        <ion-col sizeXs="4" class="show-xs-col hidden-md-col"> Data </ion-col>
+      </ion-row>
+
+      <ion-row *ngFor="let product of products">
+        <ion-col sizeXs="2" sizeMd="1">{{product.id}}</ion-col>
+        <ion-col sizeXs="6" sizeMd="2">{{product.productName}}</ion-col>
+        <ion-col class="hidden-xs-col hidden-md-col" sizeMd="2"
+          >{{product.purchasePrice}}</ion-col
+        >
+        <ion-col class="hidden-xs-col hidden-md-col" sizeMd="2"
+          >{{product.percentage}}</ion-col
+        >
+        <ion-col class="hidden-xs-col hidden-md-col" sizeMd="2"
+          >{{product.salePrice}}</ion-col
+        >
+
+        <ion-col class="hidden-xs-col hidden-md-col" sizeMd="3"
+          >{{product.supplier.corporateName}}</ion-col
+        >
+
+        <ion-col
+          sizeXs="4"
+          class="show-xs-col hidden-md-col btn-modal"
+          (click)="openModal(product.id)"
+        >
+          Show
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ion-content>

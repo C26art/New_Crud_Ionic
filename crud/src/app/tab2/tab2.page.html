@@ -1,0 +1,98 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> {{editable ? 'Update' : 'Register'}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large"
+        >{{editable ? 'Product Update' : 'Product Register'}}</ion-title
+      >
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <form [formGroup]="productForm" fullscreen>
+      <ion-list lines="full" class="ion-no-margin ion-no-padding">
+        <ion-item-group>
+          <ion-item-divider>
+            <ion-label>Product Data</ion-label>
+          </ion-item-divider>
+          <ion-item>
+            <ion-label for="" position="stacked">Product Name</ion-label>
+            <ion-input
+              type="text"
+              formControlName="productName"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label for="" position="stacked">Quantity </ion-label>
+            <ion-input
+              type="number"
+              formControlName="quantity"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label for="" position="stacked">Purchase Price</ion-label>
+            <ion-input
+              type="number"
+              formControlName="purchasePrice"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label for="" position="stacked">Percentage</ion-label>
+            <ion-input
+              type="number"
+              formControlName="percentage"
+              (change)="saleCalc()"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label for="" position="stacked">Sale Price</ion-label>
+            <ion-input
+              type="number"
+              formControlName="salePrice"
+              readonly
+              required
+            ></ion-input>
+          </ion-item>
+
+          <ion-item-group formGroupName="supplier">
+            <ion-item>
+              <ion-label>Supplier</ion-label>
+              <ion-select
+                formControlName="id"
+                placeholder="Select a Supplier"
+                okText="Selecionar"
+                cancelText="Cancelar"
+              >
+                <ion-content *ngFor="let supplier of suppliers">
+                  <ion-select-option value="{{supplier.id}}" selected
+                    >{{supplier.corporateName}}</ion-select-option
+                  >
+                </ion-content>
+              </ion-select>
+            </ion-item>
+          </ion-item-group>
+        </ion-item-group>
+      </ion-list>
+
+      <div class="ion-padding">
+        <ion-button
+          expand="block"
+          [disabled]="productForm.invalid"
+          type="submit"
+          (click)=" editable ? update() : register();"
+        >
+          {{editable ? 'Update' : 'Register'}}
+        </ion-button>
+      </div>
+    </form>
+  </ion-content>
+</ion-content>

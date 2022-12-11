@@ -1,0 +1,46 @@
+{
+  "product": [
+    {
+      "productName": "LOREM",
+      "quantity": 1,
+      "purchasePrice": 1,
+      "percentage": 1,
+      "salePrice": "1.01",
+      "supplier": {
+        "id": "1",
+        "corporateName": "lorem"
+      },
+      "id": 1
+    },
+    {
+      "productName": "shoes",
+      "quantity": 1,
+      "purchasePrice": 1,
+      "percentage": 2,
+      "salePrice": "1.01",
+      "supplier": {
+        "id": "1",
+        "corporateName": "lorem"
+      },
+      "id": 2
+    }
+  ],
+  "supplier": [
+    {
+      "corporateName": "lorem",
+      "cnpj": "lorem",
+      "contact": {
+        "email": "lorem@lorem",
+        "cellphone": "(21)98012-6230"
+      },
+      "address": {
+        "cep": "24230-541",
+        "localidade": "Niterói",
+        "uf": "RJ",
+        "bairro": "Icaraí",
+        "logradouro": "Rua Joaquim Távora"
+      },
+      "id": 1
+    }
+  ]
+}

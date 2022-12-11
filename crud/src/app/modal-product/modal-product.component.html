@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Modal</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancel()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-item-group>
+    <ion-item-divider>
+      <ion-label>Product Data</ion-label>
+    </ion-item-divider>
+
+    <ion-list>
+      <ion-item>
+        <ion-note slot="start">Quantity:</ion-note>
+        <ion-label>
+          {{ product.quantity }}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-note slot="start">Purchase Price: </ion-note>
+        <ion-label>
+          {{ product.purchasePrice }}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-note slot="start">Percentage: </ion-note>
+        <ion-label>
+          {{ product.percentage }}
+        </ion-label>
+      </ion-item>
+
+      <ion-item>
+        <ion-note slot="start">Sale Price: </ion-note>
+        <ion-label>
+          {{ product.salePrice }}
+        </ion-label>
+      </ion-item>
+    </ion-list>
+
+    <ion-item-group>
+      <ion-item-divider>
+        <ion-label>Supplier</ion-label>
+      </ion-item-divider>
+
+      <ion-item>
+        <ion-note slot="start">Name: </ion-note>
+        <ion-label>
+          {{ product.supplier.corporateName }}
+        </ion-label>
+      </ion-item>
+    </ion-item-group>
+  </ion-item-group>
+
+  <ion-row class="ion-justify-content-between ion-padding">
+    <ion-button
+      color="tertiary"
+      size="small"
+      shape="round"
+      (click)="redirectWithProductId(product.id)"
+    >
+      Update
+      <ion-icon name="pencil-outline"></ion-icon>
+    </ion-button>
+
+    <ion-button
+      color="danger"
+      size="small"
+      shape="round"
+      (click)="delete(product.id)"
+    >
+      Delete
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+  </ion-row>
+</ion-content>
